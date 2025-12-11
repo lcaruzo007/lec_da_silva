@@ -3,8 +3,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { ArrowRight, Code, Database, Globe, Cpu, Github, Linkedin, Mail, ExternalLink, Terminal, Briefcase, GraduationCap, Instagram, BookOpen, Youtube } from "lucide-react";
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 export default function Home() {
   const [text, setText] = useState("");
@@ -45,14 +47,14 @@ export default function Home() {
   };
 
   const skills = [
-    { name: "Python", icon: <Terminal className="w-6 h-6" /> },
-    { name: "Django", icon: <Database className="w-6 h-6" /> },
-    { name: "PostgreSQL", icon: <Database className="w-6 h-6" /> },
-    { name: "JavaScript", icon: <Code className="w-6 h-6" /> },
-    { name: "HTML & CSS", icon: <Globe className="w-6 h-6" /> },
-    { name: "Git & GitHub", icon: <Github className="w-6 h-6" /> },
-    { name: "Engenharia de Software", icon: <Code className="w-6 h-6" /> },
-    { name: "Metodologia Scrum", icon: <Briefcase className="w-6 h-6" /> },
+    { name: "Python", icon: <Terminal className="w-6 h-6" />, level: "Avançado", description: "Desenvolvimento backend e scripts" },
+    { name: "Django", icon: <Database className="w-6 h-6" />, level: "Avançado", description: "Framework principal para web apps" },
+    { name: "Banco de Dados", icon: <Database className="w-6 h-6" />, level: "Intermediário", description: "PostgreSQL, MySQL, SQLite" },
+    { name: "JavaScript", icon: <Code className="w-6 h-6" />, level: "Intermediário", description: "Frontend interativo e React" },
+    { name: "HTML & CSS", icon: <Globe className="w-6 h-6" />, level: "Avançado", description: "Design responsivo e moderno" },
+    { name: "Git & GitHub", icon: <Github className="w-6 h-6" />, level: "Avançado", description: "Controle de versão e colaboração" },
+    { name: "Engenharia de Software", icon: <Code className="w-6 h-6" />, level: "Intermediário", description: "Arquitetura e boas práticas" },
+    { name: "Metodologia Scrum", icon: <Briefcase className="w-6 h-6" />, level: "Intermediário", description: "Gestão ágil de projetos" },
   ];
 
   const projects = [
@@ -72,9 +74,9 @@ export default function Home() {
     },
     {
       title: "FAM Inteligente",
-      description: "Digitalização e automação de instituições filantrópicas com IoT e sistemas web para a Fundação de Apoio ao Menor.",
+      description: "Projeto em desenvolvimento para digitalização e automação de instituições filantrópicas com IoT e sistemas web para a Fundação de Apoio ao Menor.",
       image: "/images/project-bg-green-1.png",
-      tags: ["Django", "IoT", "Web Systems"],
+      tags: ["Django", "IoT", "Em Andamento"],
       link: "#"
     }
   ];
@@ -86,7 +88,7 @@ export default function Home() {
       summary: "Apresentação sobre novos paradigmas nos projetos de software utilizando o framework Django para desenvolvimento ágil e eficiente.",
       category: "Web Development",
       date: "2025",
-      link: "#"
+      link: "https://josif.ifsuldeminas.edu.br/ojs/index.php/anais/article/view/2737"
     },
     {
       id: 2,
@@ -94,7 +96,7 @@ export default function Home() {
       summary: "Análise do papel dos softwares em ambientes acadêmicos para otimização de processos e gestão eficiente de registros.",
       category: "Sistemas",
       date: "2025",
-      link: "#"
+      link: "https://josif.ifsuldeminas.edu.br/ojs/index.php/anais/article/view/2785"
     },
     {
       id: 3,
@@ -102,7 +104,7 @@ export default function Home() {
       summary: "Sistema desenvolvido com Django para gerenciamento e controle de manutenção de maquinário agrícola utilizando metodologia Scrum.",
       category: "Agronegócio",
       date: "2024",
-      link: "#"
+      link: "https://josif.ifsuldeminas.edu.br/ojs/index.php/anais/article/view/1833"
     },
     {
       id: 4,
@@ -110,7 +112,7 @@ export default function Home() {
       summary: "Desenvolvimento de sistema para monitoramento e controle de edifícios acadêmicos e administrativos seguindo conceitos de edifícios inteligentes.",
       category: "IoT",
       date: "2024",
-      link: "#"
+      link: "https://josif.ifsuldeminas.edu.br/ojs/index.php/anais/article/view/1830"
     },
     {
       id: 5,
@@ -118,19 +120,42 @@ export default function Home() {
       summary: "Análise de registros cartográficos e documentais (c. 1760-1824) nos sertões de Cabo Verde, Jacuí e Rio Pardo.",
       category: "História",
       date: "2022",
-      link: "#"
+      link: "https://josif.ifsuldeminas.edu.br/ojs/index.php/anais/article/view/1830/1835"
     },
     {
       id: 6,
       title: "FAM Inteligente: Digitalização de Instituições Filantrópicas",
-      summary: "Projeto de modernização com IoT e sistemas web para automatizar processos e otimizar a gestão de recursos em instituições filantrópicas.",
+      summary: "Projeto em andamento de modernização com IoT e sistemas web para automatizar processos e otimizar a gestão de recursos em instituições filantrópicas.",
       category: "Extensão",
-      date: "2025",
+      date: "2025 (Em Andamento)",
       link: "#"
+    },
+    {
+      id: 7,
+      title: "Programa Campus Inteligente: Gestão de Produção Agrícola",
+      summary: "Software que centraliza dados e apoia a tomada de decisões estratégicas para digitalizar e otimizar a gestão de produção agrícola, melhorando processos e reduzindo desperdícios.",
+      category: "Agronegócio",
+      date: "2024",
+      link: "https://josif.ifsuldeminas.edu.br/ojs/index.php/anais/article/view/2447"
+    },
+    {
+      id: 8,
+      title: "Minha Vivência nos Registros Acadêmicos",
+      summary: "Relato de experiência na Coordenação de Registros Acadêmicos do IFSULDEMINAS, revelando a complexidade e impacto institucional da gestão de registros, matrículas e processos administrativos.",
+      category: "Educação",
+      date: "2025",
+      link: "https://josif.ifsuldeminas.edu.br/ojs/index.php/anais/article/view/2794"
     }
   ];
 
   const timeline = [
+    {
+      year: "2025",
+      title: "Membro do CONSUP",
+      description: "Conselho Superior do IFSULDEMINAS - maior grupo institucional da instituição, responsável por decisões estratégicas.",
+      icon: <Briefcase className="w-5 h-5" />,
+      highlight: true
+    },
     {
       year: "2025",
       title: "Presidente do Centro Acadêmico",
@@ -139,14 +164,8 @@ export default function Home() {
     },
     {
       year: "2025",
-      title: "Múltiplas Representações Estudantis",
-      description: "Comissão Própria de Avaliação, NEABI e outros colegiados.",
-      icon: <Briefcase className="w-5 h-5" />
-    },
-    {
-      year: "2024",
-      title: "Membro da Empresa Júnior",
-      description: "Atuação em projetos de desenvolvimento de software.",
+      title: "Representações Estudantis",
+      description: "Comissão Própria de Avaliação, NEABI e outros colegiados institucionais.",
       icon: <Briefcase className="w-5 h-5" />
     },
     {
@@ -170,7 +189,25 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex flex-col gap-20 pb-20">
+    <>
+      <Helmet>
+        <title>Lucas Caruzo - Desenvolvedor Full Stack | Django & Python</title>
+        <meta name="description" content="Portfólio de Lucas Eduardo Caruzo da Silva. Desenvolvedor especializado em Django, Python e Sistemas Web. Membro do CONSUP do IFSULDEMINAS." />
+        <meta name="keywords" content="Lucas Caruzo, Desenvolvedor, Django, Python, Web Development, IFSULDEMINAS, Programador" />
+        <meta property="og:title" content="Lucas Caruzo - Desenvolvedor Full Stack" />
+        <meta property="og:description" content="Portfólio profissional com projetos em Django, Python e Sistemas de Gestão." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://lcaruzo007.github.io/" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="author" content="Lucas Eduardo Caruzo da Silva" />
+        <link rel="canonical" href="https://lcaruzo007.github.io/" />
+      </Helmet>
+      
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-black focus:rounded-lg">
+        Pular para o conteúdo principal
+      </a>
+      
+      <div className="flex flex-col gap-20 pb-20" id="main-content">
       
       {/* HERO SECTION */}
       <section className="relative min-h-[90vh] flex items-center justify-center pt-20 overflow-hidden">
@@ -179,9 +216,9 @@ export default function Home() {
           <img 
             src="/images/hero-bg-green.png" 
             alt="Background" 
-            className="w-full h-full object-cover opacity-50"
+            className="w-full h-full object-cover opacity-30 dark:opacity-50"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/90 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/95 to-background" />
           
           {/* Matrix Rain Effect Overlay (CSS only simulation) */}
           <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
@@ -192,15 +229,15 @@ export default function Home() {
             <span className="mr-2">●</span> Disponível para projetos
           </div>
           
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 text-white animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-100">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 text-foreground motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-8 duration-1000 delay-100">
             Olá! Eu sou o <br />
-            <span className="text-primary drop-shadow-[0_0_30px_rgba(74,222,128,0.6)] font-mono">
-              {text}<span className="animate-pulse">_</span>
+            <span className="text-primary drop-shadow-[0_0_30px_rgba(74,222,128,0.6)] dark:drop-shadow-[0_0_30px_rgba(74,222,128,0.6)] font-mono break-words">
+              {text}<span className="motion-safe:animate-pulse">_</span>
             </span>
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-            Desenvolvedor apaixonado por tecnologia e inovação. "Mesmo nos tempos mais sombrios, a esperança prevalece, sendo a luz que nos guia para fora da escuridão."
+            Desenvolvedor apaixonado por tecnologia e inovação. "Mesmo nos tempos mais sombrios, a esperança prevalece, sendo a luz que nos guia para fora da escuridão." (Superman)
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
@@ -224,7 +261,7 @@ export default function Home() {
                 Olá! Meu nome é <strong className="text-primary">Lucas Eduardo Caruzo da Silva</strong> e sou um desenvolvedor focado em criar experiências digitais funcionais, modernas e intuitivas.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Graduando em Bacharelado em Ciência da Computação no Instituto Federal de Educação, Ciência e Tecnologia do Sul de Minas, Campus Muzambinho-MG. Desenvolvo projetos nas áreas de Web Development com Django, Sistemas de Gestão, IoT e Automação.
+                Graduando em Bacharelado em Ciência da Computação no Instituto Federal de Educação, Ciência e Tecnologia do Sul de Minas, Campus Muzambinho-MG. Desenvolvo projetos nas áreas de Web Development com Django e Sistemas de Gestão.
               </p>
             </div>
 
@@ -301,19 +338,30 @@ export default function Home() {
           <p className="text-muted-foreground text-lg">Tecnologias e ferramentas que utilizo no dia a dia.</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {skills.map((skill, index) => (
-            <div 
-              key={index}
-              className="glass glass-hover p-6 rounded-xl flex flex-col items-center justify-center gap-4 text-center group border-primary/10"
-            >
-              <div className="p-4 rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(74,222,128,0.1)] group-hover:shadow-[0_0_25px_rgba(74,222,128,0.4)]">
-                {skill.icon}
-              </div>
-              <span className="font-medium text-lg group-hover:text-primary transition-colors">{skill.name}</span>
-            </div>
-          ))}
-        </div>
+        <TooltipProvider>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {skills.map((skill, index) => (
+              <Tooltip key={index}>
+                <TooltipTrigger asChild>
+                  <div 
+                    className="glass glass-hover p-4 sm:p-6 rounded-xl flex flex-col items-center justify-center gap-3 sm:gap-4 text-center group border-primary/10 cursor-help"
+                    role="button"
+                    tabIndex={0}
+                  >
+                    <div className="p-3 sm:p-4 rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(74,222,128,0.1)] group-hover:shadow-[0_0_25px_rgba(74,222,128,0.4)]">
+                      {skill.icon}
+                    </div>
+                    <span className="font-medium text-sm sm:text-lg group-hover:text-primary transition-colors">{skill.name}</span>
+                  </div>
+                </TooltipTrigger>
+                <TooltipContent className="bg-background/95 backdrop-blur-sm border-primary/20">
+                  <p className="font-semibold text-primary">{skill.level}</p>
+                  <p className="text-sm text-muted-foreground">{skill.description}</p>
+                </TooltipContent>
+              </Tooltip>
+            ))}
+          </div>
+        </TooltipProvider>
       </section>
 
       {/* PROJETOS */}
@@ -326,15 +374,12 @@ export default function Home() {
         <div className="grid md:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <Card key={index} className="bg-card/40 border-white/5 overflow-hidden group hover:border-primary/50 transition-all duration-500 hover:-translate-y-2">
-              <div className="relative h-56 overflow-hidden">
+              <div className="relative h-56 overflow-hidden bg-gradient-to-br from-primary/20 via-primary/10 to-background">
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10" />
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
-                />
+                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent to-primary/5 z-5"></div>
                 <div className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Button size="icon" className="rounded-full bg-black/50 backdrop-blur-md border border-primary/50 text-primary hover:bg-primary hover:text-black">
+                  <Button size="icon" className="rounded-full bg-background/50 backdrop-blur-md border border-primary/50 text-primary hover:bg-primary hover:text-black">
                     <ExternalLink className="w-4 h-4" />
                   </Button>
                 </div>
@@ -359,6 +404,21 @@ export default function Home() {
             </Card>
           ))}
         </div>
+        
+        {/* CTA após projetos */}
+        <div className="mt-16 text-center max-w-2xl mx-auto">
+          <h3 className="text-2xl md:text-3xl font-bold mb-4">Gostou do que viu?</h3>
+          <p className="text-muted-foreground mb-8">
+            Estou sempre aberto a novos desafios e oportunidades de colaboração. Vamos conversar sobre seu próximo projeto!
+          </p>
+          <Button 
+            size="lg" 
+            onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
+            className="shadow-[0_0_20px_rgba(74,222,128,0.3)] hover:shadow-[0_0_30px_rgba(74,222,128,0.5)] hover:scale-105 transition-all"
+          >
+            Entrar em Contato <ArrowRight className="ml-2 w-5 h-5" />
+          </Button>
+        </div>
       </section>
 
       {/* CONTATO */}
@@ -378,35 +438,35 @@ export default function Home() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="text-sm font-medium ml-1 text-primary/80">Seu Nome</label>
+                <label className="text-sm font-medium ml-1 text-foreground">Seu Nome</label>
                 <Input 
                   placeholder="João Silva" 
                   value={formData.name}
                   onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
                   required
-                  className="bg-black/20 border-white/10 focus:border-primary/50 focus:ring-primary/20 h-12" 
+                  className="bg-background/50 border-border focus:border-primary focus:ring-primary/20 h-12" 
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-medium ml-1 text-primary/80">Seu Email</label>
+                <label className="text-sm font-medium ml-1 text-foreground">Seu Email</label>
                 <Input 
                   type="email" 
                   placeholder="joao@exemplo.com" 
                   value={formData.email}
                   onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                   required
-                  className="bg-black/20 border-white/10 focus:border-primary/50 focus:ring-primary/20 h-12" 
+                  className="bg-background/50 border-border focus:border-primary focus:ring-primary/20 h-12" 
                 />
               </div>
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-medium ml-1 text-primary/80">Mensagem</label>
+              <label className="text-sm font-medium ml-1 text-foreground">Mensagem</label>
               <Textarea 
                 placeholder="Conte-me sobre seu projeto..." 
                 value={formData.message}
                 onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
                 required
-                className="bg-black/20 border-white/10 focus:border-primary/50 focus:ring-primary/20 min-h-[150px]" 
+                className="bg-background/50 border-border focus:border-primary focus:ring-primary/20 min-h-[150px]" 
               />
             </div>
             <Button 
@@ -419,29 +479,30 @@ export default function Home() {
             </Button>
           </form>
 
-          <div className="mt-12 flex justify-center gap-6">
-            <a href="https://github.com/lcaruzo007" target="_blank" rel="noopener noreferrer" className="p-4 rounded-full bg-white/5 hover:bg-primary hover:text-black transition-all hover:-translate-y-1 border border-white/5 hover:border-primary/50">
-              <Github className="w-6 h-6" />
+          <div className="mt-12 flex flex-wrap justify-center gap-4 sm:gap-6">
+            <a href="https://github.com/lcaruzo007" target="_blank" rel="noopener noreferrer" aria-label="Visite meu GitHub" className="p-4 rounded-full bg-white/5 hover:bg-primary hover:text-black transition-all hover:-translate-y-1 border border-white/5 hover:border-primary/50">
+              <Github className="w-6 h-6" aria-hidden="true" />
             </a>
-            <a href="https://www.linkedin.com/in/lucascaruzo/" target="_blank" rel="noopener noreferrer" className="p-4 rounded-full bg-white/5 hover:bg-primary hover:text-black transition-all hover:-translate-y-1 border border-white/5 hover:border-primary/50">
-              <Linkedin className="w-6 h-6" />
+            <a href="https://www.linkedin.com/in/lucascaruzo/" target="_blank" rel="noopener noreferrer" aria-label="Conecte-se no LinkedIn" className="p-4 rounded-full bg-white/5 hover:bg-primary hover:text-black transition-all hover:-translate-y-1 border border-white/5 hover:border-primary/50">
+              <Linkedin className="w-6 h-6" aria-hidden="true" />
             </a>
-            <a href="https://www.youtube.com/@lucascaruzo4847" target="_blank" rel="noopener noreferrer" className="p-4 rounded-full bg-white/5 hover:bg-primary hover:text-black transition-all hover:-translate-y-1 border border-white/5 hover:border-primary/50">
-              <Youtube className="w-6 h-6" />
+            <a href="https://www.youtube.com/@lucascaruzo4847" target="_blank" rel="noopener noreferrer" aria-label="Inscreva-se no YouTube" className="p-4 rounded-full bg-white/5 hover:bg-primary hover:text-black transition-all hover:-translate-y-1 border border-white/5 hover:border-primary/50">
+              <Youtube className="w-6 h-6" aria-hidden="true" />
             </a>
-            <a href="https://www.instagram.com/l.caruzo/" target="_blank" rel="noopener noreferrer" className="p-4 rounded-full bg-white/5 hover:bg-primary hover:text-black transition-all hover:-translate-y-1 border border-white/5 hover:border-primary/50">
-              <Instagram className="w-6 h-6" />
+            <a href="https://www.instagram.com/l.caruzo/" target="_blank" rel="noopener noreferrer" aria-label="Siga no Instagram" className="p-4 rounded-full bg-white/5 hover:bg-primary hover:text-black transition-all hover:-translate-y-1 border border-white/5 hover:border-primary/50">
+              <Instagram className="w-6 h-6" aria-hidden="true" />
             </a>
-            <a href="https://buscatextual.cnpq.br/buscatextual/visualizacv.do?metodo=apresentar&id=K9609562J2" target="_blank" rel="noopener noreferrer" className="p-4 rounded-full bg-white/5 hover:bg-primary hover:text-black transition-all hover:-translate-y-1 border border-white/5 hover:border-primary/50">
-              <BookOpen className="w-6 h-6" />
+            <a href="https://buscatextual.cnpq.br/buscatextual/visualizacv.do?metodo=apresentar&id=K9609562J2" target="_blank" rel="noopener noreferrer" aria-label="Veja meu Currículo Lattes" className="p-4 rounded-full bg-white/5 hover:bg-primary hover:text-black transition-all hover:-translate-y-1 border border-white/5 hover:border-primary/50">
+              <BookOpen className="w-6 h-6" aria-hidden="true" />
             </a>
-            <a href="mailto:lucascaruzo76@gmail.com" className="p-4 rounded-full bg-white/5 hover:bg-primary hover:text-black transition-all hover:-translate-y-1 border border-white/5 hover:border-primary/50">
-              <Mail className="w-6 h-6" />
+            <a href="mailto:lucascaruzo76@gmail.com" aria-label="Envie um email" className="p-4 rounded-full bg-white/5 hover:bg-primary hover:text-black transition-all hover:-translate-y-1 border border-white/5 hover:border-primary/50">
+              <Mail className="w-6 h-6" aria-hidden="true" />
             </a>
           </div>
         </div>
       </section>
 
-    </div>
+      </div>
+    </>
   );
 }
