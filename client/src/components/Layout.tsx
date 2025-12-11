@@ -66,7 +66,7 @@ export default function Layout({ children }: LayoutProps) {
       >
         <div className="container flex items-center justify-between">
           <Link href="/" className="text-2xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70 hover:to-primary transition-all">
-            Seu Nome
+            Lucas Caruzo
           </Link>
 
           {/* Desktop Nav */}
@@ -138,7 +138,7 @@ export default function Layout({ children }: LayoutProps) {
       <footer className="py-8 border-t border-white/5 bg-black/20 backdrop-blur-sm mt-20">
         <div className="container text-center">
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} — Seu Nome. Todos os direitos reservados.
+            © {new Date().getFullYear()} — Lucas Caruzo. Todos os direitos reservados.
           </p>
         </div>
       </footer>
