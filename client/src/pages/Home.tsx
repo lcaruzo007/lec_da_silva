@@ -191,16 +191,16 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Lucas Caruzo - Desenvolvedor Full Stack | Django & Python</title>
+        <title>Lucas Caruzo - Desenvolvedor Full Stack</title>
         <meta name="description" content="Portfólio de Lucas Eduardo Caruzo da Silva. Desenvolvedor especializado em Django, Python e Sistemas Web. Membro do CONSUP do IFSULDEMINAS." />
         <meta name="keywords" content="Lucas Caruzo, Desenvolvedor, Django, Python, Web Development, IFSULDEMINAS, Programador" />
         <meta property="og:title" content="Lucas Caruzo - Desenvolvedor Full Stack" />
         <meta property="og:description" content="Portfólio profissional com projetos em Django, Python e Sistemas de Gestão." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://lcaruzo007.github.io/" />
+        <meta property="og:url" content="https://lcaruzo007.github.io/lec_da_silva/" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="author" content="Lucas Eduardo Caruzo da Silva" />
-        <link rel="canonical" href="https://lcaruzo007.github.io/" />
+        <link rel="canonical" href="https://lcaruzo007.github.io/lec_da_silva/" />
       </Helmet>
       
       <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-black focus:rounded-lg">
