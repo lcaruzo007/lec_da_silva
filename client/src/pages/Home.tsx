@@ -61,21 +61,21 @@ export default function Home() {
     {
       title: "Sistema de Gerenciamento de Edifícios",
       description: "Sistema web para monitoramento e controle de reservas de salas em edifícios acadêmicos e administrativos. Registrado no INPI.",
-      image: "/images/project-bg-green-1.png",
+      image: "/lec_da_silva/images/project-bg-green-1.png",
       tags: ["Django", "PostgreSQL", "IoT"],
       link: "#"
     },
     {
       title: "M.I.A - Máquinas e Implementos Agrícolas",
       description: "Sistema web para gerenciamento e controle de manutenção, abastecimento e revisões de maquinário agrícola. Registrado no INPI.",
-      image: "/images/project-bg-green-2.png",
+      image: "/lec_da_silva/images/project-bg-green-2.png",
       tags: ["Django", "Python", "PostgreSQL"],
       link: "#"
     },
     {
       title: "FAM Inteligente",
       description: "Projeto em desenvolvimento para digitalização e automação de instituições filantrópicas com IoT e sistemas web para a Fundação de Apoio ao Menor.",
-      image: "/images/project-bg-green-1.png",
+      image: "/lec_da_silva/images/project-bg-green-1.png",
       tags: ["Django", "IoT", "Em Andamento"],
       link: "#"
     }
@@ -214,7 +214,7 @@ export default function Home() {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/hero-bg-green.png" 
+            src="/lec_da_silva/images/hero-bg-green.png" 
             alt="Background" 
             className="w-full h-full object-cover opacity-30 dark:opacity-50"
           />
