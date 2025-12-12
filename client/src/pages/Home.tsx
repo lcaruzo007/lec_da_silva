@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { ArrowRight, Code, Database, Globe, Cpu, Github, Linkedin, Mail, ExternalLink, Terminal, Briefcase, GraduationCap, Instagram, BookOpen, Youtube } from "lucide-react";
+import { ArrowRight, Code, Database, Globe, Cpu, Github, Linkedin, Mail, ExternalLink, Terminal, Briefcase, GraduationCap, Instagram, BookOpen, Youtube, Download } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 
@@ -236,9 +236,37 @@ export default function Home() {
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
             Desenvolvedor apaixonado por tecnologia e inovação. "Mesmo nos tempos mais sombrios, a esperança prevalece, sendo a luz que nos guia para fora da escuridão." (Superman)
           </p>
+
+          {/* Tech Stack Icons */}
+          <div className="flex justify-center gap-6 mb-10 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+            <div className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+              <div className="p-3 rounded-full bg-white/5 border border-white/10">
+                <Terminal className="w-6 h-6" />
+              </div>
+              <span className="text-xs font-mono">Python</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+              <div className="p-3 rounded-full bg-white/5 border border-white/10">
+                <Database className="w-6 h-6" />
+              </div>
+              <span className="text-xs font-mono">Django</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+              <div className="p-3 rounded-full bg-white/5 border border-white/10">
+                <Code className="w-6 h-6" />
+              </div>
+              <span className="text-xs font-mono">React</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+              <div className="p-3 rounded-full bg-white/5 border border-white/10">
+                <Globe className="w-6 h-6" />
+              </div>
+              <span className="text-xs font-mono">Web</span>
+            </div>
+          </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
             <Button size="lg" onClick={() => document.getElementById('projetos')?.scrollIntoView({ behavior: 'smooth' })} className="text-lg px-8 py-6 rounded-full shadow-[0_0_20px_rgba(74,222,128,0.4)] hover:shadow-[0_0_40px_rgba(74,222,128,0.6)] hover:bg-primary hover:text-black transition-all duration-300 font-bold">
@@ -246,6 +274,9 @@ export default function Home() {
             </Button>
             <Button size="lg" onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })} variant="outline" className="text-lg px-8 py-6 rounded-full bg-white/5 border-primary/30 text-primary hover:bg-primary/10 backdrop-blur-md">
               Entrar em Contato
+            </Button>
+            <Button size="lg" variant="outline" className="text-lg px-8 py-6 rounded-full bg-white/5 border-white/10 hover:bg-white/10 hover:text-white backdrop-blur-md" onClick={() => window.open('/lec_da_silva/cv.pdf', '_blank')}>
+              <Download className="mr-2 w-5 h-5" /> CV
             </Button>
           </div>
         </div>
@@ -255,14 +286,25 @@ export default function Home() {
       <section id="sobre" className="container scroll-mt-24">
         <div className="grid md:grid-cols-2 gap-16 items-start">
           <div className="space-y-8">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Sobre Mim</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                Olá! Meu nome é <strong className="text-primary">Lucas Eduardo Caruzo da Silva</strong> e sou um desenvolvedor focado em criar experiências digitais funcionais, modernas e intuitivas.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Graduando em Bacharelado em Ciência da Computação no Instituto Federal de Educação, Ciência e Tecnologia do Sul de Minas, Campus Muzambinho-MG. Desenvolvo projetos nas áreas de Web Development com Django e Sistemas de Gestão.
-              </p>
+            <div className="flex flex-col gap-6">
+              <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl mx-auto md:mx-0 group">
+                <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-300" />
+                <img 
+                  src="https://github.com/lcaruzo007.png" 
+                  alt="Lucas Caruzo" 
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+
+              <div>
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">Sobre Mim</h2>
+                <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                  Olá! Meu nome é <strong className="text-primary">Lucas Eduardo Caruzo da Silva</strong> e sou um desenvolvedor focado em criar experiências digitais funcionais, modernas e intuitivas.
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Graduando em Bacharelado em Ciência da Computação no Instituto Federal de Educação, Ciência e Tecnologia do Sul de Minas, Campus Muzambinho-MG. Desenvolvo projetos nas áreas de Web Development com Django e Sistemas de Gestão.
+                </p>
+              </div>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
