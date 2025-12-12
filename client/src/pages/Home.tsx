@@ -120,7 +120,7 @@ export default function Home() {
       summary: "Análise de registros cartográficos e documentais (c. 1760-1824) nos sertões de Cabo Verde, Jacuí e Rio Pardo.",
       category: "História",
       date: "2022",
-      link: "https://josif.ifsuldeminas.edu.br/ojs/index.php/anais/article/view/1830/1835"
+      link: "https://josif.ifsuldeminas.edu.br/ojs/index.php/anais/article/view/58"
     },
     {
       id: 6,
