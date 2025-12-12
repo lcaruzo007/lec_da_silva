@@ -241,7 +241,7 @@ export default function Home() {
           </p>
 
           {/* Tech Stack Icons */}
-          <div className="flex justify-center gap-6 mb-10 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+          <div className="flex flex-wrap justify-center gap-6 mb-10 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
             <div className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
               <div className="p-3 rounded-full bg-white/5 border border-white/10">
                 <Terminal className="w-6 h-6" />
@@ -250,7 +250,7 @@ export default function Home() {
             </div>
             <div className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
               <div className="p-3 rounded-full bg-white/5 border border-white/10">
-                <Database className="w-6 h-6" />
+                <Cpu className="w-6 h-6" />
               </div>
               <span className="text-xs font-mono">Django</span>
             </div>
@@ -258,13 +258,19 @@ export default function Home() {
               <div className="p-3 rounded-full bg-white/5 border border-white/10">
                 <Code className="w-6 h-6" />
               </div>
-              <span className="text-xs font-mono">React</span>
+              <span className="text-xs font-mono">JavaScript</span>
             </div>
             <div className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
               <div className="p-3 rounded-full bg-white/5 border border-white/10">
                 <Globe className="w-6 h-6" />
               </div>
-              <span className="text-xs font-mono">Web</span>
+              <span className="text-xs font-mono">HTML/CSS</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+              <div className="p-3 rounded-full bg-white/5 border border-white/10">
+                <Database className="w-6 h-6" />
+              </div>
+              <span className="text-xs font-mono">Banco de Dados</span>
             </div>
           </div>
           
@@ -274,9 +280,6 @@ export default function Home() {
             </Button>
             <Button size="lg" onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })} variant="outline" className="text-lg px-8 py-6 rounded-full bg-white/5 border-primary/30 text-primary hover:bg-primary/10 backdrop-blur-md">
               Entrar em Contato
-            </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-6 rounded-full bg-white/5 border-white/10 hover:bg-white/10 hover:text-white backdrop-blur-md" onClick={() => window.open('/lec_da_silva/cv.pdf', '_blank')}>
-              <Download className="mr-2 w-5 h-5" /> CV
             </Button>
           </div>
         </div>
